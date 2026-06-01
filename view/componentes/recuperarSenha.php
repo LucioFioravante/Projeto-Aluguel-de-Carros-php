@@ -1,8 +1,48 @@
-<h1>Recuperar Senha</h1>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="view/estilos/header.css">
+    <link rel="stylesheet" href="view/estilos/recuperarSenha.css">
+    <title>CarroJá | Recuperar senha</title>
+</head>
+<body>
 
-<form method="post">
-    cpf <input type="text" name="cpf" placeholder="Digite seu CPF" required>
-    data de nascimento <input type="date" name="dataNascimento" placeholder="Digite sua data de nascimento" required>
-    nova senha <input type="password" name="novaSenha" placeholder="Digite sua nova senha" required>
-    <button type="submit">Recuperar Senha</button>
-</form>
+<?php include_once __DIR__ . '/header.php'; ?>
+
+<main class="auth-page auth-recuperar">
+    <section class="auth-card">
+        <div class="auth-topo">
+            <p class="auth-etiqueta">Segurança</p>
+            <h1>Recuperar senha</h1>
+            <p class="auth-subtitulo">Confirme seus dados para criar uma nova senha de acesso.</p>
+        </div>
+
+        <form method="post" class="auth-form">
+            <label class="auth-campo">
+                <span>CPF</span>
+                <input type="text" name="cpf" placeholder="Digite seu CPF" required>
+            </label>
+
+            <label class="auth-campo">
+                <span>Data de nascimento</span>
+                <input type="date" name="dataNascimento" required>
+            </label>
+
+            <label class="auth-campo">
+                <span>Nova senha</span>
+                <input type="password" name="novaSenha" placeholder="Digite sua nova senha" required>
+            </label>
+
+            <button type="submit" class="auth-botao">Redefinir senha</button>
+        </form>
+
+        <div class="auth-links">
+            <p>Voltar para o acesso? <a href="?p=fazer-login">Entrar</a></p>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

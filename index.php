@@ -26,22 +26,9 @@
     else if($url == 'recuperar-senha'){
         RecuperarSenhaController::recuperarSenha();
     }
-
     else if($url == "veiculos") {
         VeiculoController::catalogo($pdo);
     }
-
-    // DEIXEI COMENTANDO PARA SO MUDAR OS DADOS DEPOIS COM O QUE TEMOS
-
-    // else if($url == 'dashboard'){
-    //     LoginController::dashboard();
-    // } 
-    // else if($url == 'addTarefa'){
-    //     LoginController::addTarefa();
-    // }
-    // else {
-    //     LoginController::index();
-    // }
     else if($url == 'logout'){
         LogoutController::logout();
     }
