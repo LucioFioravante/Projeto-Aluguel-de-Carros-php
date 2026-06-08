@@ -3,8 +3,13 @@
     class VeiculoModel {
 
         public static function listarVeiculos($pdo) {
-            $busca = $pdo->query("SELECT * FROM veiculos");
-            return $busca->fetchAll();
+            $busca = $pdo->prepare("SELECT * FROM veiculos");
+            $busca->execute();
+            $veiculos = [];
+            while($veiculo = $busca->fetch()) {
+                $veiculos[] = $veiculo;
+            }
+            return $veiculos;
         }
 
         public static function buscarVeiculoPorId($pdo, $id) {
@@ -63,6 +68,21 @@
             return $busca->rowCount();
         }
 
+        public static function atualizarDisponibilidade($pdo, $id, $disponivel) {
+            $busca = $pdo->prepare("UPDATE veiculos SET disponivel = ? WHERE id = ?");
+            $busca->execute([$disponivel, $id]);
+            return $busca->rowCount();
+        }
+
+        public static function listarCategorias($pdo) {
+            $busca = $pdo->prepare("SELECT DISTINCT categoria FROM veiculos ORDER BY categoria");
+            $busca->execute();
+            $categorias = [];
+            while($categoria = $busca->fetch()) {
+                $categorias[] = $categoria;
+            }
+            return $categorias;
+        }
     }
 
 ?>

@@ -9,6 +9,7 @@
 
             $token = CsrfUtilitario::gerarCsrf();
 
+            $categorias = VeiculoModel::listarCategorias($pdo);
             include_once __DIR__ . "/../view/veiculos.php";
         }
     }

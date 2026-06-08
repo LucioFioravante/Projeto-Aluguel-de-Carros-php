@@ -11,15 +11,6 @@
 
 <?php
     include_once __DIR__ . "/componentes/header.php";
-
-    $categorias = [
-        'economico' => 'Econômico',
-        'intermediario' => 'Intermediário',
-        'suv' => 'SUV',
-        'luxo' => 'Luxo',
-        'esportiva' => 'Esportiva',
-        'utilitaria' => 'Utilitária',
-    ];
 ?>
 
 <div class="resultados-bar">
@@ -52,9 +43,9 @@
         <div class="filtro-grupo">
             <h3>Categoria</h3>
             <div class="filtro-chips" id="chips-categoria">
-                <?php foreach ($categorias as $valor => $categoria):?>
-                    <button class="chip" data-filtro="categoria" data-valor="<?=$valor?>">
-                        <?=$categoria?>
+                <?php foreach ($categorias as $cat):?>
+                    <button class="chip" data-filtro="categoria" data-valor="<?=$cat->categoria?>">
+                        <?=$cat->categoria?>
                     </button>
                 <?php endforeach?>
             </div>
@@ -124,8 +115,8 @@
 
                                 <?php if ($disponivel):?>
                                     <form method="post" action="?p=alugar">
-                                        <input type="hidden" name="csrfToken" value= "<?=$token?>">
-                                        <input type="hidden" name="idVeiculo" value="<?=$veiculo->id?>">
+                                        <input type="hidden" name="csrf_token" value= "<?=$token?>">
+                                        <input type="hidden" name="id_veiculo" value="<?=$veiculo->id?>">
                                         <button type="submit" class="btn-alugar">Alugar agora</button>
                                     </form>
                                 <?php else:?>
