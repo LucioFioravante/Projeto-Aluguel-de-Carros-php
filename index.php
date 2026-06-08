@@ -29,6 +29,12 @@
     else if($url == 'logout'){
         AutenticacaoController::logout();
     }
+    else if($url == 'alugar') {
+        AluguelController::formularioAluguel($pdo);
+    } 
+    else if($url == 'confirmar-aluguel') {
+        AluguelController::confirmarAluguel($pdo);
+    }
     else {
         echo "Página não encontrada";
     }

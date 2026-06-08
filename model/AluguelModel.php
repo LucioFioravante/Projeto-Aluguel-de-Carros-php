@@ -3,13 +3,19 @@
     class AluguelModel {
 
         public static function listarAlugueis($pdo) {
-            $busca = $pdo->query("
+            $busca = $pdo->prepare("
                 SELECT a.*, u.nome AS usuario_nome, v.marca, v.modelo
                 FROM alugueis a
                 JOIN usuarios u ON a.usuario_id = u.id
                 JOIN veiculos v ON a.veiculo_id = v.id
             ");
-            return $busca->fetchAll();
+            $busca->execute();
+
+            $alugueis = [];
+            while($aluguel = $busca->fetch()) {
+                $alugueis[] = $aluguel;
+            }
+            return $alugueis;
         }
 
         public static function listarAlugueisPorUsuario($pdo, $usuario_id) {
@@ -21,7 +27,12 @@
                 ORDER BY a.criado_em DESC
             ");
             $busca->execute([$usuario_id]);
-            return $busca->fetchAll();
+
+            $alugueis = [];
+            while($aluguel = $busca->fetch()) {
+                $alugueis[] = $aluguel;
+            }
+            return $alugueis;
         }
 
         public static function buscarAluguelPorId($pdo, $id) {
@@ -80,7 +91,6 @@
             $busca->execute([$status, $id]);
             return $busca->rowCount();
         }
-
     }
 
 ?>

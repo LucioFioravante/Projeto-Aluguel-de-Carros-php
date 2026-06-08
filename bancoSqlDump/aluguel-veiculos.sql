@@ -187,7 +187,7 @@ CREATE TABLE `veiculos` (
   `ano` int(11) NOT NULL,
   `cor` varchar(30) DEFAULT NULL,
   `placa` varchar(10) NOT NULL,
-  `categoria` enum('economico','intermediario','suv','luxo','esportiva','utilitaria') NOT NULL,
+  `categoria` enum('Econômico','Intermediário','SUV','Luxo','Esportiva','Utilitária') NOT NULL,
   `preco_diaria` decimal(10,2) NOT NULL,
   `disponivel` tinyint(1) DEFAULT 1,
   `quilometragem` int(11) DEFAULT 0,
