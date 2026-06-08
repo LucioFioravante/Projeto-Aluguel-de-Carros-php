@@ -3,12 +3,13 @@
     class AluguelModel {
 
         public static function listarAlugueis($pdo) {
-            $busca = $pdo->query("
+            $busca = $pdo->prepare("
                 SELECT a.*, u.nome AS usuario_nome, v.marca, v.modelo
                 FROM alugueis a
                 JOIN usuarios u ON a.usuario_id = u.id
                 JOIN veiculos v ON a.veiculo_id = v.id
             ");
+            $busca->execute();
 
             $alugueis = [];
             while($aluguel = $busca->fetch()) {
