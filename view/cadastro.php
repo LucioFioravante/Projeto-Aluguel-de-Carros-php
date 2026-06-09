@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="view/estilos/header.css">
     <link rel="stylesheet" href="view/estilos/cadastro.css">
-    <title>CarroJá | Cadastro</title>
+    <title>AutomóvelJá | Cadastro</title>
 </head>
 <body>
 
@@ -31,26 +31,31 @@
             <label class="auth-campo">
                 <span>Usuário</span>
                 <input type="text" name="nome" placeholder="Seu nome de usuário" required>
+                <small class="campo-erro" id="erroNome"></small>
             </label>
 
             <label class="auth-campo">
                 <span>E-mail</span>
                 <input type="email" name="mail" placeholder="seuemail@exemplo.com" required>
+                <small class="campo-erro" id="erroEmail"></small>
             </label>
 
             <label class="auth-campo">
                 <span>CPF</span>
                 <input type="text" name="cpf" placeholder="000.000.000-00" required maxlength="11">
+                <small class="campo-erro" id="erroCpf"></small>
             </label>
 
             <label class="auth-campo">
                 <span>Data de nascimento</span>
                 <input type="date" name="dataNascimento" required>
+                <small class="campo-erro" id="erroDataNascimento"></small>
             </label>
 
             <label class="auth-campo auth-campo-full">
                 <span>Telefone</span>
                 <input type="text" name="telefone" placeholder="(00) 00000-0000" required maxlength="11">
+                <small class="campo-erro" id="erroTelefone"></small>
             </label>
 
             <label class="auth-campo auth-campo-full">

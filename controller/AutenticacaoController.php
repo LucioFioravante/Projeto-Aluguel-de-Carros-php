@@ -45,7 +45,13 @@
                 $senha = $_POST['senha'] ?? '';
                 
                 if(validaCamposCadastro($usuario, $cpf, $dataNascimento, $mail, $telefone, $senha)){
-                    $mensagemErro = 'Preencha todos os campos.';
+                    global $errosCadastro;
+            
+                    if(!empty($errosCadastro)){
+                        $mensagemErro = implode(' | ', $errosCadastro);
+                    } else {
+                        $mensagemErro = 'Preencha todos os campos.';
+                    }
                 } else {
                     if(addUsuario($usuario, $cpf, $dataNascimento, $mail, $telefone, password_hash($senha, PASSWORD_DEFAULT))){
                         $mensagemSucesso = 'Cadastro realizado com sucesso. Faça login para continuar.';

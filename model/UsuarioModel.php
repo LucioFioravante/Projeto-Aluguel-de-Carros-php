@@ -4,12 +4,12 @@
         global $pdo;
         
         try {
-            $stmt = $pdo->prepare("
+            $resp = $pdo->prepare("
                 INSERT INTO usuarios (id, nome, cpf, data_nascimento, email, telefone, senha)
                 VALUES (null, :nome, :cpf, :data_nascimento, :email, :telefone, :senha)
             ");
             
-            $stmt->execute([
+            $resp->execute([
                 ':nome'           => $usuario,
                 ':cpf'            => $cpf,
                 ':data_nascimento'=> $dataNascimento,
@@ -27,6 +27,7 @@
     }
 
     function recuperarSenha($cpf, $dataNascimento, $novaSenha){
+        
         global $pdo;
         $resp = $pdo->query("SELECT * FROM usuarios WHERE cpf='$cpf' AND data_nascimento='$dataNascimento';");
 
@@ -57,6 +58,34 @@
             }
         } else {
               return false;
+        }
+    }
+
+    function emailExisteNoBanco($email) {
+
+        global $pdo;
+        try {
+            $resp = $pdo->prepare("SELECT COUNT(*) as count FROM usuarios WHERE email = :email");
+            $resp->execute([':email' => $email]);
+            $result = $resp->fetch(PDO::FETCH_ASSOC);  
+            return $result['count'] > 0;
+        } catch (PDOException $e) {
+            error_log("Erro ao verificar email: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    function cpfExisteNoBanco($cpf) {
+
+        global $pdo;
+        try {
+            $resp = $pdo->prepare("SELECT COUNT(*) as count FROM usuarios WHERE cpf = :cpf");
+            $resp->execute([':cpf' => $cpf]);
+            $result = $resp->fetch(PDO::FETCH_ASSOC);  
+            return $result['count'] > 0;
+        } catch (PDOException $e) {
+            error_log("Erro ao verificar CPF: " . $e->getMessage());
+            return false;
         }
     }
 

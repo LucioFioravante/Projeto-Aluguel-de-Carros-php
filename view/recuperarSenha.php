@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="view/estilos/header.css">
     <link rel="stylesheet" href="view/estilos/recuperarSenha.css">
-    <title>CarroJá | Recuperar senha</title>
+    <title>AutomóvelJá | Recuperar senha</title>
 </head>
 <body>
 

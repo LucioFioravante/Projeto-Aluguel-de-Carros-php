@@ -1,7 +1,7 @@
 <header>
     <div class="header-inner">
 
-        <a href="?p=home" class="logo">Carro<span>Já</span></a>
+        <a href="?p=home" class="logo">Automóvel<span>Já</span></a>
 
         <nav id="nav-menu">
             <a href="?p=home"     <?= ($_GET['p'] ?? '') === 'home'     ? 'class="ativo"' : '' ?>>Início</a>
