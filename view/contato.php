@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="./css/contato.css">
+<link rel="stylesheet" href="view/estilos/header.css">
+<link rel="stylesheet" href="view/estilos/contato.css">
 
 <div class="contato-wrapper">
     <div class="contato-info">
