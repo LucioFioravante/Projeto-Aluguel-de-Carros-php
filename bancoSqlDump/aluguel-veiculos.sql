@@ -105,6 +105,18 @@ CREATE TABLE `noticias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Estrutura para tabela `comentarios_blog`
+--
+
+CREATE TABLE `comentarios_blog` (
+  `id`           int(11)   NOT NULL AUTO_INCREMENT,
+  `nome`         varchar(100) NOT NULL,
+  `mensagem`     text         NOT NULL,
+  `data_criacao` timestamp    NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Despejando dados para a tabela `noticias`
 --
 
