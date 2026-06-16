@@ -57,16 +57,25 @@
     else if($url == 'contato') {
         ContatoController::exibirContato($pdo);
     }
-    // ...
     else if ($url == 'deletar-comentario') {
         InicioController::deletarComentario($pdo);
     }
     else if ($url == 'editar-comentario') {
         InicioController::editarComentario($pdo);
     }
-    // ...
-    else {
-        echo "Página não encontrada";
+    else if($url == 'meus-alugueis') {
+        AluguelController::meusAlugueis($pdo);
     }
-
+    else if($url == 'devolver-aluguel') {
+        AluguelController::devolverAluguel($pdo);
+    }
+    else if($url == 'alterar-aluguel') {
+        AluguelController::alterarAluguel($pdo);
+    }
+    else if($url == 'cancelar-aluguel') {
+        AluguelController::cancelarAluguel($pdo);
+    }
+    else {
+        InicioController::exibirInicio($pdo);
+    }
 ?>
