@@ -57,6 +57,14 @@
     else if($url == 'contato') {
         ContatoController::exibirContato($pdo);
     }
+    // ...
+    else if ($url == 'deletar-comentario') {
+        InicioController::deletarComentario($pdo);
+    }
+    else if ($url == 'editar-comentario') {
+        InicioController::editarComentario($pdo);
+    }
+    // ...
     else {
         echo "Página não encontrada";
     }

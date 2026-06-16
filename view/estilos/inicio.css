@@ -1,17 +1,38 @@
-/* Importando as mesmas fontes para manter o padrão */
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+:root {
+    --bg:         #f5f4f0;
+    --branco:     #ffffff;
+    --preto:      #111111;
+    --cinza-esc:  #3a3a3a;
+    --cinza-med:  #6b6b6b;
+    --cinza-cla:  #e8e6e0;
+    --borda:      #dddbd4;
+    --laranja:    #e85d04;
+    --laranja-h:  #ff6b1a;
+    --laranja-bg: #fff3ec;
+    --verde:      #1a7a4a;
+    --verde-bg:   #edf7f2;
+    --sombra:     0 2px 12px rgba(0,0,0,0.07);
+    --sombra-h:   0 8px 32px rgba(0,0,0,0.13);
+    --radius:     14px;
+}
+
+body {
+    background-color: var(--bg); 
+}
 
 .hero-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: var(--branco);
-    padding: 60px;
+    padding: 70px; /* Aumentamos o respiro interno (era 60px) */
     border-radius: var(--radius);
     box-shadow: var(--sombra);
-    margin: 40px auto;
-    max-width: 1000px; /* Alinhado com a largura da página Sobre */
-    gap: 40px;
+    margin: 50px auto;
+    max-width: 1150px; /* Aumentamos a largura limite da caixa (era 1000px) */
+    gap: 50px;
 }
 
 .hero-text {
@@ -19,16 +40,16 @@
 }
 
 .hero-text h1 {
-    font-size: 2.8rem;
+    font-size: 3.4rem; /* Título mais imponente (era 2.8rem) */
     color: var(--preto);
-    margin-bottom: 20px;
-    line-height: 1.2;
+    margin-bottom: 25px;
+    line-height: 1.1;
 }
 
 .hero-text p {
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Texto de apoio mais legível (era 1.1rem) */
     color: var(--cinza-med);
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     line-height: 1.6;
 }
 
@@ -38,7 +59,6 @@
     justify-content: flex-end;
 }
 
-/* Replicando o efeito de hover que você fez no sobreNos.css */
 .hero-image img {
     max-width: 100%;
     border-radius: var(--radius);
@@ -60,4 +80,151 @@
     .hero-image {
         justify-content: center;
     }
+}
+/* =========================================================
+   SEÇÃO DE COMENTÁRIOS (BLOG)
+   ========================================================= */
+.blog-container {
+    background-color: var(--branco);
+    padding: 50px;
+    border-radius: var(--radius);
+    box-shadow: var(--sombra);
+    
+    /* Centraliza na página, com uma margem no topo para separar do card principal */
+    margin: 0 auto 60px auto; 
+    
+    /* Largura um pouco menor que o card principal para facilitar a leitura dos textos */
+    max-width: 800px; 
+}
+
+.blog-container h2 {
+    color: var(--preto);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+/* --- Estilo do Formulário --- */
+.form-comentario {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--borda); /* Linha divisória suave */
+}
+
+.form-comentario .form-group {
+    margin-bottom: 15px;
+}
+
+.form-comentario input[type="text"],
+.form-comentario textarea {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--preto);
+    background-color: var(--bg); /* Um cinza super claro para contrastar com a caixa branca */
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.form-comentario input[type="text"]:focus,
+.form-comentario textarea:focus {
+    border-color: var(--laranja);
+}
+
+.form-comentario textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-comentario button {
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+/* --- Estilo da Lista de Comentários --- */
+.lista-comentarios h3 {
+    color: var(--preto);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.comentario-card {
+    background-color: var(--bg);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--borda);
+    transition: transform 0.2s;
+}
+
+.comentario-card:hover {
+    transform: translateX(5px); /* Pequeno efeito ao passar o mouse */
+}
+
+.comentario-card strong {
+    color: var(--preto);
+    font-size: 1.1rem;
+}
+
+.comentario-card .data {
+    color: var(--cinza-med);
+    font-size: 0.85rem;
+    margin-left: 10px;
+}
+
+.comentario-card p {
+    color: var(--cinza-esc);
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+    .blog-container {
+        padding: 30px;
+        margin: 0 20px 40px 20px;
+    }
+}
+
+/* --- Ações do CRUD no Blog --- */
+.comentario-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.acoes-crud {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid var(--borda);
+    padding-top: 10px;
+}
+
+.btn-crud {
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--branco);
+    font-weight: 500;
+}
+
+.btn-edit {
+    background-color: var(--cinza-med);
+}
+
+.btn-edit:hover {
+    background-color: var(--cinza-esc);
+}
+
+.btn-del {
+    background-color: #dc3545; /* Vermelho padrão para perigo */
+}
+
+.btn-del:hover {
+    background-color: #c82333;
 }
