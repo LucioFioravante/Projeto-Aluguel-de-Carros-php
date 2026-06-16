@@ -1,0 +1,99 @@
+.contato-wrapper {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.contato-info, .contato-form-box {
+    background-color: var(--branco);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--sombra);
+    flex: 1;
+}
+
+.contato-wrapper h2 {
+    color: var(--preto);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.contato-info p {
+    color: var(--cinza-esc);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.contato-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contato-info li {
+    color: var(--preto);
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--preto);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--preto);
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--laranja);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+/* Botão utilizando as variáveis exatas */
+.btn-enviar {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--branco);
+    background: var(--laranja);
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.btn-enviar:hover {
+    background: var(--laranja-h);
+}
+
+@media (max-width: 768px) {
+    .contato-wrapper {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+}

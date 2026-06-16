@@ -1,10 +1,10 @@
 <header>
     <div class="header-inner">
 
-        <a href="?p=home" class="logo">Automóvel<span>Já</span></a>
+        <a href="?p=inicio" class="logo">Automóvel<span>Já</span></a>
 
         <nav id="nav-menu">
-            <a href="?p=home"     <?= ($_GET['p'] ?? '') === 'home'     ? 'class="ativo"' : '' ?>>Início</a>
+            <a href="?p=inicio"   <?= ($_GET['p'] ?? '') === 'inicio'   ? 'class="ativo"' : '' ?>>Início</a>
             <a href="?p=veiculos" <?= ($_GET['p'] ?? '') === 'veiculos' ? 'class="ativo"' : '' ?>>Veículos</a>
             <a href="?p=contato"  <?= ($_GET['p'] ?? '') === 'contato'  ? 'class="ativo"' : '' ?>>Contato</a>
             <a href="?p=sobre"    <?= ($_GET['p'] ?? '') === 'sobre'    ? 'class="ativo"' : '' ?>>Sobre</a>

@@ -7,9 +7,10 @@
     require "./banco.php";    
     require "./controller/AutenticacaoController.php";
     require "./controller/AluguelController.php";
-    require "./controller/ContatoController.php";
     require "./controller/VeiculoController.php";
     require "./controller/SobreNosController.php";
+    require "./controller/ContatoController.php";
+    require "./controller/InicioController.php";
     require_once __DIR__ . "/utilitarios/CsrfUtilitario.php";
 
     include "./view/componentes/header.php";
@@ -49,6 +50,12 @@
     }
     else if($url == 'deletar-veiculo') {
         VeiculoController::deletarVeiculo($pdo);
+    }
+    else if($url == 'inicio') {
+        InicioController::exibirInicio($pdo);
+    }
+    else if($url == 'contato') {
+        ContatoController::exibirContato($pdo);
     }
     else {
         echo "Página não encontrada";

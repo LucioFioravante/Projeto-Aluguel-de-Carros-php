@@ -1,0 +1,63 @@
+/* Importando as mesmas fontes para manter o padrão */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--branco);
+    padding: 60px;
+    border-radius: var(--radius);
+    box-shadow: var(--sombra);
+    margin: 40px auto;
+    max-width: 1000px; /* Alinhado com a largura da página Sobre */
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    color: var(--preto);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: var(--cinza-med);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Replicando o efeito de hover que você fez no sobreNos.css */
+.hero-image img {
+    max-width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--sombra);
+    transition: transform 0.5s ease-in;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--sombra-h);
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        padding: 30px;
+        text-align: center;
+    }
+    .hero-image {
+        justify-content: center;
+    }
+}
